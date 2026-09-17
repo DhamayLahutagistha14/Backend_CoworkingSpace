@@ -14,7 +14,7 @@ via header `x-maker-key`).
 2. Copy `.env.example` menjadi `.env`, lalu sesuaikan `DATABASE_URL` sesuai
    kredensial MySQL kamu, contoh:
    ```
-   DATABASE_URL="mysql://root:passwordku@localhost:3306/coworking_db"
+   DATABASE_URL="mysql://root:passwordku@localhost:3306/coworking_db_baru"
    ```
 3. Install dependency (ini juga otomatis menjalankan `prisma generate`
    lewat script `postinstall`):
