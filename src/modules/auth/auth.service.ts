@@ -13,6 +13,11 @@ import { RegisterMemberDto } from './dto/register-member.dto';
 import { RegisterAdminSpaceDto } from './dto/register-admin-space.dto';
 import { LoginDto } from './dto/login.dto';
 
+const BASE_URL = process.env.BASE_URL || `http://localhost:${process.env.PORT || 3000}`;
+function fotoUrl(foto: string | null) {
+  return foto ? `${BASE_URL}/uploads/members/${foto}` : null;
+}
+
 @Injectable()
 export class AuthService {
   constructor(
@@ -75,6 +80,7 @@ export class AuthService {
           alamat: member.alamat,
           telp: member.telp,
           foto: member.foto,
+          foto_url: fotoUrl(member.foto),
         },
         access_token,
       },
@@ -170,6 +176,7 @@ export class AuthService {
               alamat: user.member.alamat,
               telp: user.member.telp,
               foto: user.member.foto,
+              foto_url: fotoUrl(user.member.foto),
             }
           : null,
         space_owner: user.space_owner
@@ -197,7 +204,7 @@ export class AuthService {
         id: user.id,
         username: user.username,
         role: user.role,
-        member: user.member || null,
+        member: user.member ? { ...user.member, foto_url: fotoUrl(user.member.foto) } : null,
         space_owner: user.space_owner || null,
       },
     };
