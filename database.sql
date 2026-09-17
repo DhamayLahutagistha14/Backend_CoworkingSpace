@@ -1,0 +1,27 @@
+-- =========================================================================
+-- CATATAN: Skema database TIDAK LAGI ditulis manual di file .sql ini.
+-- =========================================================================
+--
+-- Backend ini sekarang menggunakan PRISMA ORM. Struktur database yang
+-- sesungguhnya (tabel, kolom, tipe data, relasi, enum) didefinisikan di:
+--
+--     prisma/schema.prisma
+--
+-- File itulah SATU-SATUNYA sumber kebenaran (single source of truth).
+-- Untuk membuat/menyinkronkan tabel ke MySQL, jalankan dari folder backend/:
+--
+--     npx prisma db push
+--
+-- Untuk melihat isi database lewat GUI browser:
+--
+--     npx prisma studio
+--
+-- Ringkasan tabel yang akan terbentuk (lihat detail lengkap di schema.prisma):
+--   makers         -> akun siswa (App Maker) untuk multi-tenancy
+--   users          -> akun login (member / admin_space)
+--   members        -> profil pelanggan
+--   space_owners   -> profil pengelola coworking space
+--   spaces         -> data ruangan/meja yang bisa dipesan
+--   diskons        -> kode promo
+--   reservasis     -> transaksi pemesanan
+-- =========================================================================
